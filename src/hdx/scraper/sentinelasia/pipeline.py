@@ -94,8 +94,10 @@ class Pipeline:
             tags = ["hxl", "geodata"]
             found_tag = False
             disaster_types = self._configuration["disaster_types"]
+            disaster_type_lower = disaster_type.lower()
+            description_lower = description.lower()
             for disaster in disaster_types:
-                if disaster in disaster_type.lower() or disaster in description.lower():
+                if disaster in disaster_type_lower or disaster in description_lower:
                     tags.append(disaster)
                     found_tag = True
             if not found_tag:
